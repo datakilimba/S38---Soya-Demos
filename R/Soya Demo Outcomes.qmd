@@ -1,0 +1,50 @@
+---
+title: "Soya Demo Outcomes"
+author: "SAKiRP"
+format: 
+  pdf: 
+    fig-pos: 'H'
+header-includes:
+   \usepackage{float}
+   \floatplacement{table}{H}
+editor: visual
+execute: 
+  echo: false
+  message: false
+---
+
+```{r setup}
+#| message: false
+
+source(here::here("R/Soya Demo Analysis.R"))
+```
+
+## Introduction
+
+The SAKiRP project has introduced soya beans into the Kigoma region's farming systems. However, there are a number of factors which can affect soya bean yield, ranging from the variety planted, fertilizer type and use of inoculant. The field test performed in demo farms in Kasulu, Kibondo and Kakonko districts show us that the highest harvested yield is from the treatment combining Maksoy 6N, NPK fertilizer, and inoculant with a median yield of 1,175 grams from a 2.5 x 2.5m plot, equivalent to `r yield = round((4046.86/(2.5^2))*(highest_yield/1000),0); yield` kg a^-1^ or `r round(yield*2.47105,0)` kg ha^-1^. This is despite not having the highest median podcount (`r podcount_highest_yielding_value` pods per plant for `r podcount_highest_yielding_name` vs `r variety_highest_podcount_value` pods per plant for `r variety_highest_podcount_name`).
+
+## Demo plot outcomes
+
+::: {#fig-plots layout="[1,1]"}
+![Yield per treatment](images/yield_plot.png){#fig-yield}
+
+![Podcount per plant](images/count_plot.png){#fig-cnt}
+
+Yield outcomes (in grams per 2.5m x 2.5m plot)
+:::
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Summary of treatments and outcomes"
+
+prettyfied_data
+
+```
+
+Treatments with yield and podcount outcomes are as shown in @tbl-summary.
+
+@fig-experiment shows the layout of the demo plots as well as the treatment per numbered plot.
+
+![Demo plot layout](images/demo_layout.jpeg){#fig-experiment}
+
+## Recommendation
